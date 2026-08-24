@@ -5,8 +5,9 @@ from engine.lay_plan import calculate_lay_plan
 def calculate_cs_trade(
     back_stake: float,
     back_odds: float,
-    odds_02: float,
-    odds_12: float,
+    odds_02: float = 0.0,
+    odds_12: float = 0.0,
+    solo_x: bool = False,
 ) -> dict:
     """
     Calcola l'intera operazione:
@@ -27,12 +28,12 @@ def calculate_cs_trade(
 
     if back_odds <= 1.01:
         raise ValueError("back_odds deve essere > 1.01")
+    if not solo_x:
+        if odds_02 <= 1.01:
+            raise ValueError("odds_02 deve essere > 1.01")
 
-    if odds_02 <= 1.01:
-        raise ValueError("odds_02 deve essere > 1.01")
-
-    if odds_12 <= 1.01:
-        raise ValueError("odds_12 deve essere > 1.01")
+        if odds_12 <= 1.01:
+            raise ValueError("odds_12 deve essere > 1.01")
 
     # --------------------------------------------------
     # 1. BACK X
@@ -73,13 +74,20 @@ def calculate_cs_trade(
     # 4. STAKE CORRECT SCORE
     # --------------------------------------------------
 
-    stake_02 = freebet / (odds_02 - 1)
-    stake_12 = freebet / (odds_12 - 1)
+    if solo_x:
+        stake_02 = 0.0
+        stake_12 = 0.0
+        stake_02_executable = True
+        stake_12_executable = True
+    else:
+        stake_02 = freebet / (odds_02 - 1)
+        stake_12 = freebet / (odds_12 - 1)
 
-    MIN_BET_STAKE = 1.00
+        MIN_BET_STAKE = 1.00
 
-    stake_02_executable = stake_02 >= MIN_BET_STAKE
-    stake_12_executable = stake_12 >= MIN_BET_STAKE
+        stake_02_executable = stake_02 >= MIN_BET_STAKE
+        stake_12_executable = stake_12 >= MIN_BET_STAKE
+
 
 
     return {
@@ -99,7 +107,7 @@ def calculate_minimum_back_stake(
 ) -> dict:
     """
     Calcola la stake X minima necessaria affinché entrambe
-    le stake CS siano eseguibili rispettando il minimo Betfair.
+    le stake CS raggiungano almeno min_cs_stake.
 
     La freebet target viene determinata dalla CS che richiede
     la maggiore freebet per raggiungere la stake minima.

@@ -32,10 +32,6 @@ st.markdown(
     """
     <style>
 
-    /* ==================================================
-       GLOBAL
-       ================================================== */
-
     .block-container {
         width: 100%;
         max-width: 1450px;
@@ -45,11 +41,6 @@ st.markdown(
         padding-left: 3rem;
         padding-right: 3rem;
     }
-
-
-    /* ==================================================
-       TITOLI
-       ================================================== */
 
     h1 {
         font-size: clamp(2rem, 2.5vw, 3rem) !important;
@@ -71,11 +62,6 @@ st.markdown(
         margin-bottom: 0.5rem !important;
     }
 
-
-    /* ==================================================
-       LABEL INPUT PERSONALIZZATE
-       ================================================== */
-
     .custom-input-label {
         font-size: 1rem;
         font-weight: 700;
@@ -85,19 +71,9 @@ st.markdown(
         color: rgba(250, 250, 250, 0.95);
     }
 
-
-    /* ==================================================
-       RIMUOVE LABEL NATIVE STREAMLIT
-       ================================================== */
-
     [data-testid="stTextInput"] label {
         display: none !important;
     }
-
-
-    /* ==================================================
-       RIMUOVE DECORAZIONI / LINK
-       ================================================== */
 
     .custom-input-label a,
     .custom-input-label svg,
@@ -115,11 +91,6 @@ st.markdown(
         text-decoration: none !important;
     }
 
-
-    /* ==================================================
-       INPUT
-       ================================================== */
-
     [data-testid="stTextInput"] {
         width: 100% !important;
         margin-bottom: 0 !important;
@@ -134,22 +105,12 @@ st.markdown(
         box-sizing: border-box;
     }
 
-
-    /* ==================================================
-       SPAZIATURA GENERALE
-       ================================================== */
-
     [data-testid="stVerticalBlock"] {
         gap: 0.5rem;
     }
 
-
     /* ==================================================
-       CONTROLLI STAKE + QUOTE
-       
-       IMPORTANTE:
-       usiamo le classi .st-key-quote-controls-...
-       direttamente invece di [class^="..."].
+       CONTROLLI INPUT
        ================================================== */
 
     .st-key-stake-controls,
@@ -161,31 +122,18 @@ st.markdown(
         margin-bottom: 0.7rem;
     }
 
-
-    /* ==================================================
-       RIGA DEI CONTROLLI
-       ================================================== */
-
     .st-key-stake-controls [data-testid="stHorizontalBlock"],
     .st-key-quote-controls-back_odds [data-testid="stHorizontalBlock"],
     .st-key-quote-controls-odds_02 [data-testid="stHorizontalBlock"],
     .st-key-quote-controls-odds_12 [data-testid="stHorizontalBlock"] {
-
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         align-items: center !important;
-
         width: 100% !important;
         min-width: 0 !important;
-
         gap: 0.4rem !important;
     }
-
-
-    /* ==================================================
-       COLONNA FRECCIA SINISTRA
-       ================================================== */
 
     .st-key-stake-controls
     [data-testid="stHorizontalBlock"]
@@ -202,17 +150,11 @@ st.markdown(
     .st-key-quote-controls-odds_12
     [data-testid="stHorizontalBlock"]
     > [data-testid="stColumn"]:first-child {
-
         flex: 0 0 2.3rem !important;
         width: 2.3rem !important;
         min-width: 2.3rem !important;
         max-width: 2.3rem !important;
     }
-
-
-    /* ==================================================
-       COLONNA INPUT CENTRALE
-       ================================================== */
 
     .st-key-stake-controls
     [data-testid="stHorizontalBlock"]
@@ -229,17 +171,11 @@ st.markdown(
     .st-key-quote-controls-odds_12
     [data-testid="stHorizontalBlock"]
     > [data-testid="stColumn"]:nth-child(2) {
-
         flex: 1 1 0 !important;
         width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
     }
-
-
-    /* ==================================================
-       COLONNA FRECCIA DESTRA
-       ================================================== */
 
     .st-key-stake-controls
     [data-testid="stHorizontalBlock"]
@@ -256,17 +192,11 @@ st.markdown(
     .st-key-quote-controls-odds_12
     [data-testid="stHorizontalBlock"]
     > [data-testid="stColumn"]:last-child {
-
         flex: 0 0 2.3rem !important;
         width: 2.3rem !important;
         min-width: 2.3rem !important;
         max-width: 2.3rem !important;
     }
-
-
-    /* ==================================================
-       CONTENUTO COLONNE
-       ================================================== */
 
     .st-key-stake-controls
     [data-testid="stColumn"],
@@ -276,14 +206,8 @@ st.markdown(
     [data-testid="stColumn"],
     .st-key-quote-controls-odds_12
     [data-testid="stColumn"] {
-
         min-width: 0 !important;
     }
-
-
-    /* ==================================================
-       INPUT CENTRALI
-       ================================================== */
 
     .st-key-stake-controls
     [data-testid="stTextInput"],
@@ -293,20 +217,13 @@ st.markdown(
     [data-testid="stTextInput"],
     .st-key-quote-controls-odds_12
     [data-testid="stTextInput"] {
-
         width: 100% !important;
     }
-
-
-    /* ==================================================
-       PULSANTI FRECCIA
-       ================================================== */
 
     .st-key-stake-controls [data-testid="stButton"],
     .st-key-quote-controls-back_odds [data-testid="stButton"],
     .st-key-quote-controls-odds_02 [data-testid="stButton"],
     .st-key-quote-controls-odds_12 [data-testid="stButton"] {
-
         width: 100% !important;
         margin: 0 !important;
     }
@@ -315,22 +232,18 @@ st.markdown(
     .st-key-quote-controls-back_odds [data-testid="stButton"] button,
     .st-key-quote-controls-odds_02 [data-testid="stButton"] button,
     .st-key-quote-controls-odds_12 [data-testid="stButton"] button {
-
         min-height: 2.55rem !important;
         height: 2.55rem !important;
-
         width: 100% !important;
-
         padding: 0 !important;
         margin: 0 !important;
-
         font-size: 0.72rem !important;
         line-height: 1 !important;
     }
 
 
     /* ==================================================
-       FAVORITA TRASFERTA
+       CHECKBOX BOX
        ================================================== */
 
     .st-key-favorite-away-box {
@@ -358,9 +271,59 @@ st.markdown(
         font-weight: 700 !important;
     }
 
+    .st-key-sharp-exchange-box {
+        margin-top: 0.1rem;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem 0.9rem;
+        border-radius: 0.6rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    .st-key-sharp-exchange-box [data-testid="stCheckbox"] {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .st-key-sharp-exchange-box [data-testid="stCheckbox"] label {
+        display: flex !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+    }
+
+    .st-key-sharp-exchange-box [data-testid="stCheckbox"] p {
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+    }
+
+    .st-key-solo-x-box {
+        margin-top: 0.1rem;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem 0.9rem;
+        border-radius: 0.6rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    .st-key-solo-x-box [data-testid="stCheckbox"] {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .st-key-solo-x-box [data-testid="stCheckbox"] label {
+        display: flex !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+    }
+
+    .st-key-solo-x-box [data-testid="stCheckbox"] p {
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+    }
+
 
     /* ==================================================
-       CALCOLA
+       BUTTON PRIMARY
        ================================================== */
 
     button[kind="primary"] {
@@ -373,47 +336,59 @@ st.markdown(
 
 
     /* ==================================================
-       METRICS
+       RISULTATI
        ================================================== */
 
+    /*
+       Tutti i 4 risultati principali usano st.metric().
+       Questo rende perfettamente uniformi:
+       - label
+       - valore
+       - spaziatura
+       - dimensioni
+    */
+
     [data-testid="stMetric"] {
-        padding: 0;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    .result-label,
     [data-testid="stMetricLabel"] {
-        font-size: 0.8rem;
-        line-height: 1.2;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        color: rgba(255, 255, 255, 0.62) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
         text-decoration: none !important;
+        margin: 0 0 0.15rem 0 !important;
+        padding: 0 !important;
+    }
+
+    [data-testid="stMetricLabel"] > div,
+    [data-testid="stMetricLabel"] p {
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+        text-transform: inherit !important;
+        letter-spacing: inherit !important;
+        text-decoration: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     [data-testid="stMetricValue"] {
-        font-size: clamp(1.45rem, 2vw, 2rem);
-        line-height: 1.15;
+        font-size: clamp(1.45rem, 2vw, 2rem) !important;
+        font-weight: 400 !important;
+        line-height: 1.15 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     [data-testid="stMetricDelta"] {
         font-size: 0.78rem;
-    }
-
-
-    /* ==================================================
-       FREEBET
-       ================================================== */
-
-    .result-label {
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.62);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.05rem;
-    }
-
-    .freebet-value {
-        font-size: clamp(2.1rem, 3vw, 3rem);
-        font-weight: 700;
-        line-height: 1.05;
-        margin-bottom: 0.9rem;
     }
 
 
@@ -438,7 +413,7 @@ st.markdown(
 
 
     /* ==================================================
-       COME RENDERE ESEGUIBILE
+       MINIMUM SECTION
        ================================================== */
 
     .st-key-minimum-section {
@@ -458,7 +433,7 @@ st.markdown(
 
 
     /* ==================================================
-       EXPANDER
+       EXPANDER / ALERT
        ================================================== */
 
     [data-testid="stExpander"] {
@@ -471,19 +446,18 @@ st.markdown(
         padding-bottom: 0.65rem;
     }
 
-
-    /* ==================================================
-       ALERT
-       ================================================== */
-
     [data-testid="stAlert"] {
         padding-top: 0.65rem;
         padding-bottom: 0.65rem;
     }
 
+    .empty-container {
+        display: none !important;
+    }
+
 
     /* ==================================================
-       GRANDI SCHERMI
+       DESKTOP
        ================================================== */
 
     @media (min-width: 1200px) {
@@ -509,20 +483,24 @@ st.markdown(
         .st-key-quote-controls-back_odds [data-testid="stButton"] button,
         .st-key-quote-controls-odds_02 [data-testid="stButton"] button,
         .st-key-quote-controls-odds_12 [data-testid="stButton"] button {
-
             min-height: 2.8rem !important;
             height: 2.8rem !important;
         }
 
         .st-key-favorite-away-box [data-testid="stCheckbox"] label,
-        .st-key-favorite-away-box [data-testid="stCheckbox"] p {
+        .st-key-favorite-away-box [data-testid="stCheckbox"] p,
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] p,
+        .st-key-solo-x-box [data-testid="stCheckbox"] label,
+        .st-key-solo-x-box [data-testid="stCheckbox"] p {
             font-size: 1.1rem !important;
         }
+
     }
 
 
     /* ==================================================
-       GRANDI SCHERMI 1600+
+       LARGE DESKTOP
        ================================================== */
 
     @media (min-width: 1600px) {
@@ -557,32 +535,33 @@ st.markdown(
         .st-key-quote-controls-back_odds [data-testid="stButton"] button,
         .st-key-quote-controls-odds_02 [data-testid="stButton"] button,
         .st-key-quote-controls-odds_12 [data-testid="stButton"] button {
-
             min-height: 3rem !important;
             height: 3rem !important;
         }
 
-        .st-key-favorite-away-box {
+        .st-key-favorite-away-box,
+        .st-key-sharp-exchange-box,
+        .st-key-solo-x-box {
             padding: 0.9rem 1rem;
         }
 
         .st-key-favorite-away-box [data-testid="stCheckbox"] label,
-        .st-key-favorite-away-box [data-testid="stCheckbox"] p {
+        .st-key-favorite-away-box [data-testid="stCheckbox"] p,
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] p,
+        .st-key-solo-x-box [data-testid="stCheckbox"] label,
+        .st-key-solo-x-box [data-testid="stCheckbox"] p {
             font-size: 1.15rem !important;
         }
 
-        .freebet-value {
-            font-size: 3.1rem;
-        }
-
         [data-testid="stMetricValue"] {
-            font-size: 2.05rem;
+            font-size: 2.05rem !important;
         }
     }
 
 
     /* ==================================================
-       SCHERMI MOLTO GRANDI
+       EXTRA LARGE
        ================================================== */
 
     @media (min-width: 2000px) {
@@ -604,7 +583,7 @@ st.markdown(
         [data-testid="stHorizontalBlock"] {
             gap: 0.5rem !important;
         }
-        
+
         h3 {
             text-align: center !important;
         }
@@ -631,11 +610,6 @@ st.markdown(
             margin-bottom: 1rem;
         }
 
-
-        /* ==================================================
-           INPUT MOBILE
-           ================================================== */
-
         [data-testid="stTextInput"] {
             width: 100% !important;
             min-width: 0 !important;
@@ -649,62 +623,63 @@ st.markdown(
         }
 
 
-        /* ==================================================
-           FAVORITA TRASFERTA MOBILE
-           ================================================== */
+        /* ----------------------------------------------
+           CHECKBOX
+           ---------------------------------------------- */
 
-        .st-key-favorite-away-box {
+        .st-key-favorite-away-box,
+        .st-key-solo-x-box {
             padding: 0.8rem 0.85rem;
             margin-top: 0.1rem;
             margin-bottom: 0.75rem;
         }
 
         .st-key-favorite-away-box [data-testid="stCheckbox"] label,
-        .st-key-favorite-away-box [data-testid="stCheckbox"] p {
+        .st-key-favorite-away-box [data-testid="stCheckbox"] p,
+        .st-key-solo-x-box [data-testid="stCheckbox"] label,
+        .st-key-solo-x-box [data-testid="stCheckbox"] p {
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+        }
+
+        .st-key-sharp-exchange-box {
+            padding: 0.8rem 0.85rem;
+            margin-top: 0.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
+        .st-key-sharp-exchange-box [data-testid="stCheckbox"] p {
             font-size: 1.05rem !important;
             font-weight: 700 !important;
         }
 
 
-        /* ==================================================
-           TUTTI I CONTROLLI MOBILE
-           ================================================== */
+        /* ----------------------------------------------
+           INPUT CONTROLS
+           ---------------------------------------------- */
 
         .st-key-stake-controls,
         .st-key-quote-controls-back_odds,
         .st-key-quote-controls-odds_02,
         .st-key-quote-controls-odds_12 {
-
             width: 100% !important;
             margin-top: 0.1rem;
             margin-bottom: 0.7rem;
         }
 
-
-        /* ==================================================
-           RIGA SEMPRE ORIZZONTALE
-           ================================================== */
-
         .st-key-stake-controls [data-testid="stHorizontalBlock"],
         .st-key-quote-controls-back_odds [data-testid="stHorizontalBlock"],
         .st-key-quote-controls-odds_02 [data-testid="stHorizontalBlock"],
         .st-key-quote-controls-odds_12 [data-testid="stHorizontalBlock"] {
-
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
             align-items: center !important;
-
             width: 100% !important;
             min-width: 0 !important;
-
             gap: 0.3rem !important;
         }
-
-
-        /* ==================================================
-           COLONNA SINISTRA MOBILE
-           ================================================== */
 
         .st-key-stake-controls
         [data-testid="stHorizontalBlock"]
@@ -721,17 +696,11 @@ st.markdown(
         .st-key-quote-controls-odds_12
         [data-testid="stHorizontalBlock"]
         > [data-testid="stColumn"]:first-child {
-
             flex: 0 0 2.2rem !important;
             width: 2.2rem !important;
             min-width: 2.2rem !important;
             max-width: 2.2rem !important;
         }
-
-
-        /* ==================================================
-           COLONNA CENTRALE MOBILE
-           ================================================== */
 
         .st-key-stake-controls
         [data-testid="stHorizontalBlock"]
@@ -748,17 +717,11 @@ st.markdown(
         .st-key-quote-controls-odds_12
         [data-testid="stHorizontalBlock"]
         > [data-testid="stColumn"]:nth-child(2) {
-
             flex: 1 1 0 !important;
             width: auto !important;
             min-width: 0 !important;
             max-width: none !important;
         }
-
-
-        /* ==================================================
-           COLONNA DESTRA MOBILE
-           ================================================== */
 
         .st-key-stake-controls
         [data-testid="stHorizontalBlock"]
@@ -775,17 +738,11 @@ st.markdown(
         .st-key-quote-controls-odds_12
         [data-testid="stHorizontalBlock"]
         > [data-testid="stColumn"]:last-child {
-
             flex: 0 0 2.2rem !important;
             width: 2.2rem !important;
             min-width: 2.2rem !important;
             max-width: 2.2rem !important;
         }
-
-
-        /* ==================================================
-           COLONNE MOBILE: DISABILITA MIN-WIDTH AUTOMATICA
-           ================================================== */
 
         .st-key-stake-controls
         [data-testid="stColumn"],
@@ -798,14 +755,8 @@ st.markdown(
 
         .st-key-quote-controls-odds_12
         [data-testid="stColumn"] {
-
             min-width: 0 !important;
         }
-
-
-        /* ==================================================
-           INPUT CENTRALE MOBILE
-           ================================================== */
 
         .st-key-stake-controls
         [data-testid="stTextInput"],
@@ -818,21 +769,14 @@ st.markdown(
 
         .st-key-quote-controls-odds_12
         [data-testid="stTextInput"] {
-
             width: 100% !important;
             min-width: 0 !important;
         }
-
-
-        /* ==================================================
-           FRECCE MOBILE
-           ================================================== */
 
         .st-key-stake-controls [data-testid="stButton"],
         .st-key-quote-controls-back_odds [data-testid="stButton"],
         .st-key-quote-controls-odds_02 [data-testid="stButton"],
         .st-key-quote-controls-odds_12 [data-testid="stButton"] {
-
             width: 100% !important;
             margin: 0 !important;
         }
@@ -841,49 +785,67 @@ st.markdown(
         .st-key-quote-controls-back_odds [data-testid="stButton"] button,
         .st-key-quote-controls-odds_02 [data-testid="stButton"] button,
         .st-key-quote-controls-odds_12 [data-testid="stButton"] button {
-
             min-height: 2.55rem !important;
             height: 2.55rem !important;
-
             width: 100% !important;
-
             padding: 0 !important;
             margin: 0 !important;
-
             font-size: 0.72rem !important;
             line-height: 1 !important;
         }
 
 
-        /* ==================================================
-           CS RISULTATI SEMPRE AFFIANCATI
-           ================================================== */
+        /* ----------------------------------------------
+           RISULTATI PRINCIPALI
+           
+           IMPORTANTE:
+           2 colonne SEMPRE affiancate su mobile.
+           Prima riga:
+             Stake X corrente | Stake X minima
+           Seconda riga:
+             Stake CS 0-2      | Stake CS 1-2
+           ---------------------------------------------- */
 
-        .cs-results [data-testid="stHorizontalBlock"] {
+        .st-key-stake-results [data-testid="stHorizontalBlock"],
+        .st-key-cs-results [data-testid="stHorizontalBlock"] {
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+            width: 100% !important;
+            min-width: 0 !important;
             gap: 0.5rem !important;
         }
 
-        .cs-results
+        .st-key-stake-results
+        [data-testid="stHorizontalBlock"]
+        > [data-testid="stColumn"],
+
+        .st-key-cs-results
         [data-testid="stHorizontalBlock"]
         > [data-testid="stColumn"] {
-
-            flex: 1 1 50% !important;
+            flex: 1 1 0% !important;
             width: 50% !important;
             min-width: 0 !important;
             max-width: 50% !important;
         }
-    }
 
+        .st-key-stake-results [data-testid="stMetric"],
+        .st-key-cs-results [data-testid="stMetric"] {
+            width: 100% !important;
+            min-width: 0 !important;
+        }
 
-    /* ==================================================
-       EVENTUALI CONTAINER VUOTI
-       ================================================== */
+        .st-key-stake-results [data-testid="stMetricLabel"],
+        .st-key-cs-results [data-testid="stMetricLabel"] {
+            white-space: normal !important;
+        }
 
-    .empty-container {
-        display: none !important;
+        .st-key-stake-results [data-testid="stMetricValue"],
+        .st-key-cs-results [data-testid="stMetricValue"] {
+            white-space: nowrap !important;
+        }
+
     }
 
     </style>
@@ -906,13 +868,28 @@ if "odds_12" not in st.session_state:
     st.session_state.odds_12 = "10.00"
 
 if "stake_x" not in st.session_state:
-    st.session_state.stake_x = "300"
+    st.session_state.stake_x = "1600"
 
 if "favorita_trasferta" not in st.session_state:
     st.session_state.favorita_trasferta = False
 
+if "sharp_exchange" not in st.session_state:
+    st.session_state.sharp_exchange = True
+
+if "solo_x" not in st.session_state:
+    st.session_state.solo_x = False
+
 if "minimum_back_stake" not in st.session_state:
     st.session_state.minimum_back_stake = None
+
+if "calculated" not in st.session_state:
+    st.session_state.calculated = False
+
+if "cs_independent" not in st.session_state:
+    st.session_state.cs_independent = False
+
+if "cs_freebet" not in st.session_state:
+    st.session_state.cs_freebet = "100"
 
 
 # ==================================================
@@ -920,9 +897,6 @@ if "minimum_back_stake" not in st.session_state:
 # ==================================================
 
 def stake_step(value: float) -> float:
-
-    if value < 10:
-        return 2.0
 
     if value < 50:
         return 5.0
@@ -1098,6 +1072,8 @@ def set_minimum_stake():
             int(minimum)
         )
 
+        st.session_state["calculated"] = True
+
 
 # ==================================================
 # STAKE INPUT
@@ -1233,6 +1209,7 @@ st.title("Draw → Correct Score")
 st.markdown(
     """
     <style>
+
     .info-row {
         display: flex;
         align-items: center;
@@ -1245,7 +1222,6 @@ st.markdown(
         line-height: 1.4;
     }
 
-    /* Contenitore del popover */
     .info-popover {
         display: flex;
         align-items: center;
@@ -1256,7 +1232,6 @@ st.markdown(
         padding: 0 !important;
     }
 
-    /* Pulsante informazioni */
     .info-popover [data-testid="stPopover"] {
         width: auto !important;
         min-width: 0 !important;
@@ -1269,20 +1244,15 @@ st.markdown(
         min-width: 1.35rem !important;
         height: 1.35rem !important;
         min-height: 1.35rem !important;
-
         padding: 0 !important;
         margin: 0 !important;
-
         border: none !important;
         background: transparent !important;
         box-shadow: none !important;
-
         color: rgba(255, 255, 255, 0.55) !important;
-
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-
         font-family: Arial, sans-serif !important;
         font-size: 0.95rem !important;
         font-weight: 700 !important;
@@ -1296,6 +1266,7 @@ st.markdown(
     }
 
     @media (max-width: 768px) {
+
         .info-caption {
             font-size: 0.85rem;
         }
@@ -1307,6 +1278,7 @@ st.markdown(
             min-height: 1.35rem !important;
         }
     }
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -1336,7 +1308,7 @@ with col_info:
         unsafe_allow_html=True,
     )
 
-    with st.popover("🛈", key="info-popover"):
+    with st.popover("ⓘ", key="info-popover"):
 
         st.markdown("#### Come funziona")
 
@@ -1355,7 +1327,9 @@ with col_info:
 # ==================================================
 # MAIN LAYOUT
 # ==================================================
+
 with st.container(key="main-layout"):
+
     input_col, result_col = st.columns(
         [0.95, 1.05],
         gap="large",
@@ -1372,13 +1346,6 @@ with input_col:
 
 
     # --------------------------------------------------
-    # STAKE X
-    # --------------------------------------------------
-
-    back_stake = stake_input()
-
-
-    # --------------------------------------------------
     # FAVORITA TRASFERTA
     # --------------------------------------------------
 
@@ -1391,18 +1358,48 @@ with input_col:
 
 
     # --------------------------------------------------
+    # SHARP EXCHANGE
+    # --------------------------------------------------
+
+    with st.container(key="sharp-exchange-box"):
+
+        sharp_exchange = st.checkbox(
+            "Sharp Exchange",
+            key="sharp_exchange",
+        )
+
+    # --------------------------------------------------
+    # SOLO SU X
+    # --------------------------------------------------
+
+    with st.container(key="solo-x-box"):
+
+        solo_x = st.checkbox(
+            "Calcola solo su X",
+            key="solo_x",
+        )
+
+
+    # --------------------------------------------------
+    # STAKE X
+    # --------------------------------------------------
+
+    back_stake = stake_input()
+
+
+    # --------------------------------------------------
     # LABEL CORRECT SCORE
     # --------------------------------------------------
 
     if favorita_trasferta:
 
-        cs_02_label = "CS 2-0"
-        cs_12_label = "CS 2-1"
+        cs_02_label = "Stake CS 2-0"
+        cs_12_label = "Stake CS 2-1"
 
     else:
 
-        cs_02_label = "CS 0-2"
-        cs_12_label = "CS 1-2"
+        cs_02_label = "Stake CS 0-2"
+        cs_12_label = "Stake CS 1-2"
 
 
     # --------------------------------------------------
@@ -1419,26 +1416,27 @@ with input_col:
     # QUOTA CS
     # --------------------------------------------------
 
-    odds_02 = quote_input(
-        cs_02_label,
-        "odds_02",
-    )
+    if not solo_x:
+        odds_02 = quote_input(
+            cs_02_label,
+            "odds_02",
+        )
 
-    odds_12 = quote_input(
-        cs_12_label,
-        "odds_12",
-    )
+        odds_12 = quote_input(
+            cs_12_label,
+            "odds_12",
+        )
 
+    else:
 
-    # --------------------------------------------------
-    # CALCOLA
-    # --------------------------------------------------
+        odds_02 = float(
+            st.session_state.get("odds_02", "20.00").replace(",", ".")
+        )
 
-    calculate_clicked = st.button(
-        "CALCOLA",
-        type="primary",
-        use_container_width=True,
-    )
+        odds_12 = float(
+            st.session_state.get("odds_12", "10.00").replace(",", ".")
+        )
+
 
 
 # ==================================================
@@ -1451,47 +1449,27 @@ with result_col:
 
 
     # ==================================================
-    # PRIMA DEL CALCOLO
+    # VALIDAZIONE
     # ==================================================
 
-    if not calculate_clicked:
+    if back_stake <= 0:
 
-        st.info(
-            "Inserisci i valori e premi **CALCOLA**."
+        st.error(
+            "Inserisci una stake X valida."
         )
 
-
-    # ==================================================
-    # CALCOLO
-    # ==================================================
-
-    else:
-
-        st.session_state.minimum_back_stake = None
+        st.stop()
 
 
-        # ==================================================
-        # VALIDAZIONE
-        # ==================================================
+    if back_odds <= 1.01:
 
-        if back_stake <= 0:
+        st.error(
+            "Inserisci una quota X valida."
+        )
 
-            st.error(
-                "Inserisci una stake X valida."
-            )
+        st.stop()
 
-            st.stop()
-
-
-        if back_odds <= 1.01:
-
-            st.error(
-                "Inserisci una quota X valida."
-            )
-
-            st.stop()
-
-
+    if not solo_x:
         if odds_02 <= 1.01:
 
             st.error(
@@ -1510,20 +1488,20 @@ with result_col:
             st.stop()
 
 
-        # ==================================================
-        # VALIDAZIONE LADDER
-        # ==================================================
+    # ==================================================
+    # VALIDAZIONE LADDER
+    # ==================================================
 
-        if round(back_odds, 2) not in BETFAIR_LADDER:
+    if round(back_odds, 2) not in BETFAIR_LADDER:
 
-            st.error(
-                f"Quota X {back_odds:.2f} "
-                "non presente nella ladder Betfair."
-            )
+        st.error(
+            f"Quota X {back_odds:.2f} "
+            "non presente nella ladder Betfair."
+        )
 
-            st.stop()
+        st.stop()
 
-
+    if not solo_x:
         if round(odds_02, 2) not in BETFAIR_LADDER:
 
             st.error(
@@ -1532,7 +1510,6 @@ with result_col:
             )
 
             st.stop()
-
 
         if round(odds_12, 2) not in BETFAIR_LADDER:
 
@@ -1544,54 +1521,151 @@ with result_col:
             st.stop()
 
 
-        # ==================================================
-        # CALCOLO
-        # ==================================================
+    # ==================================================
+    # CALCOLO OPERAZIONE
+    # ==================================================
+
+    try:
+
+        result = calculate_cs_trade(
+            back_stake=back_stake,
+            back_odds=back_odds,
+            odds_02=odds_02,
+            odds_12=odds_12,
+            solo_x=solo_x,
+        )
+
+    except ValueError as error:
+
+        st.error(str(error))
+
+        st.stop()
+
+
+    # ==================================================
+    # RISULTATI BASE
+    # ==================================================
+
+    freebet = result["freebet"]
+    stake_02 = result["stake_02"]
+    stake_12 = result["stake_12"]
+    lay_plan = result["lay_plan"]
+
+
+    # ==================================================
+    # STAKE MINIMA CS
+    # ==================================================
+
+    minimum_outcome_stake = (
+        10.0 if sharp_exchange else 1.0
+    )
+
+
+    # ==================================================
+    # CALCOLO STAKE X MINIMA
+    # ==================================================
+
+    if solo_x:
+
+        minimum_back_stake = None
+        target_freebet = None
+        st.session_state["minimum_back_stake"] = None
+
+    else:
 
         try:
 
-            result = calculate_cs_trade(
-                back_stake=back_stake,
+            minimum_result = calculate_minimum_back_stake(
                 back_odds=back_odds,
                 odds_02=odds_02,
                 odds_12=odds_12,
+                min_cs_stake=minimum_outcome_stake,
+            )
+
+            minimum_back_stake_raw = (
+                minimum_result["minimum_back_stake"]
+            )
+
+            minimum_back_stake = round_minimum_stake(
+                minimum_back_stake_raw
+            )
+
+            target_freebet = (
+                minimum_result["target_freebet"]
+            )
+
+            st.session_state["minimum_back_stake"] = (
+                minimum_back_stake
             )
 
         except ValueError as error:
 
-            st.error(str(error))
+            minimum_back_stake = None
+            target_freebet = None
 
-            st.stop()
-
-
-        # ==================================================
-        # RISULTATI
-        # ==================================================
-
-        freebet = result["freebet"]
-        stake_02 = result["stake_02"]
-        stake_12 = result["stake_12"]
-        lay_plan = result["lay_plan"]
+            st.warning(
+                "Impossibile calcolare la stake X minima: "
+                f"{error}"
+            )
 
 
-        
-        # ==================================================
-        # FREEBET
-        # ==================================================
 
-        st.markdown(
-            '<div class="result-label">Freebet</div>',
-            unsafe_allow_html=True,
-        )
-        
-        st.markdown(
-            f'<div class="freebet-value">{freebet:.2f} €</div>',
-            unsafe_allow_html=True,
-        )
+    # ==================================================
+    # STAKE X + STAKE CS
+    #
+    # Layout:
+    #
+    # Stake X corrente | Stake X minima
+    # Stake CS 0-2     | Stake CS 1-2
+    #
+    # Tutti usano st.metric(), quindi stesso stile.
+    # ==================================================
 
-        # ==================================================
-        # CS STAKES
-        # ==================================================
+    with st.container(key="stake-results"):
+
+        if solo_x:
+
+            st.metric(
+                "Stake X corrente",
+                f"{back_stake:.2f}".rstrip("0").rstrip(".") + " €",
+            )
+
+        else:
+
+            stake_col, minimum_col = st.columns(
+                2,
+                gap="medium",
+            )
+
+            with stake_col:
+
+                st.metric(
+                    "Stake X corrente",
+                    f"{back_stake:.2f}".rstrip("0").rstrip(".") + " €",
+                )
+
+            with minimum_col:
+
+                if minimum_back_stake is not None:
+
+                    st.metric(
+                        "Stake X minima",
+                        f"{minimum_back_stake:.2f}".rstrip("0").rstrip(".") + " €",
+                    )
+
+                else:
+
+                    st.metric(
+                        "Stake X minima",
+                        "—",
+                    )
+
+
+    # ==================================================
+    # CS STAKES
+    # ==================================================
+
+    if not solo_x:
 
         with st.container(key="cs-results"):
 
@@ -1619,194 +1693,201 @@ with result_col:
                 )
 
 
-        # ==================================================
-        # STATO
-        # ==================================================
+    # ==================================================
+    # FREEBET
+    # ==================================================
 
+    st.metric(
+        "Freebet",
+        f"{freebet:.2f}".rstrip("0").rstrip(".") + " €",
+    )
+
+    # ==================================================
+    # STATO
+    # ==================================================
+
+    if solo_x:
+        executable = True
+    else:
         executable = (
-            stake_02 >= 1
-            and stake_12 >= 1
+            stake_02 >= minimum_outcome_stake
+            and stake_12 >= minimum_outcome_stake
         )
 
 
-        # ==================================================
-        # SOLO NON ESEGUIBILE
-        # ==================================================
+    # ==================================================
+    # NON ESEGUIBILE
+    # ==================================================
 
-        if not executable:
+    if not executable:
+
+        st.markdown(
+            """
+            <div class="status-box status-error">
+                ❌ OPERAZIONE NON ESEGUIBILE
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+        # ----------------------------------------------
+        # COME RENDERE ESEGUIBILE
+        # ----------------------------------------------
+
+        with st.container(key="minimum-section"):
 
             st.markdown(
-                """
-                <div class="status-box status-error">
-                    ❌ OPERAZIONE NON ESEGUIBILE
-                </div>
-                """,
+                '<div class="minimum-title">'
+                'Come rendere eseguibile'
+                '</div>',
                 unsafe_allow_html=True,
             )
 
 
-            # ----------------------------------------------
-            # COME RENDERE ESEGUIBILE
-            # ----------------------------------------------
+            if minimum_back_stake is not None:
 
-            with st.container(key="minimum-section"):
-
-                st.markdown(
-                    '<div class="minimum-title">'
-                    'Come rendere eseguibile'
-                    '</div>',
-                    unsafe_allow_html=True,
-                )
-
-                try:
-
-                    minimum_result = (
-                        calculate_minimum_back_stake(
-                            back_odds=back_odds,
-                            odds_02=odds_02,
-                            odds_12=odds_12,
-                        )
-                    )
-
-                    minimum_back_stake_raw = (
-                        minimum_result["minimum_back_stake"]
-                    )
-
-                    target_freebet = (
-                        minimum_result["target_freebet"]
-                    )
-
-                    # Arrotondamento sempre per eccesso.
-                    minimum_back_stake = (
-                        round_minimum_stake(
-                            minimum_back_stake_raw
-                        )
-                    )
-
-                    st.session_state.minimum_back_stake = (
-                        minimum_back_stake
-                    )
-
-                    min_col_1, min_col_2 = st.columns(
-                        2,
-                        gap="medium",
-                    )
-
-                    with min_col_1:
-
-                        st.metric(
-                            "Stake X minima",
-                            f"{minimum_back_stake:.0f} €",
-                        )
-
-                    with min_col_2:
-
-                        st.metric(
-                            "Freebet minima",
-                            f"€{target_freebet:.2f}",
-                        )
-
-
-                    st.button(
-                        "IMPOSTA STAKE MINIMA",
-                        key="set_minimum_stake_button",
-                        use_container_width=True,
-                        on_click=set_minimum_stake,
-                    )
-
-                except ValueError as error:
-
-                    st.warning(
-                        "Impossibile calcolare la stake X minima: "
-                        f"{error}"
-                    )
-
-
-        # ==================================================
-        # SOLO SE ESEGUIBILE
-        # ==================================================
-
-        if executable:
-
-            # ----------------------------------------------
-            # PIANO LAY
-            # ----------------------------------------------
-
-            with st.expander(
-                "Piano Lay",
-                expanded=True,
-            ):
-
-                if not lay_plan:
-
-                    st.caption(
-                        "Nessun piano Lay disponibile."
-                    )
-
-                else:
-
-                    for i, lay in enumerate(
-                        lay_plan,
-                        start=1,
-                    ):
-
-                        st.write(
-                            f"**Lay {i}** — "
-                            f"{lay.stake:.2f} € "
-                            f"@ {lay.odds:.2f}"
-                        )
-
-
-            # ----------------------------------------------
-            # ESITI POTENZIALI
-            # ----------------------------------------------
-
-            with st.expander(
-                "Esiti potenziali",
-                expanded=True,
-            ):
-
-                profit_x = freebet
-
-                profit_02 = (
-                    stake_02 * (odds_02 - 1)
-                    - stake_12
-                )
-
-                profit_12 = (
-                    stake_12 * (odds_12 - 1)
-                    - stake_02
-                )
-
-                profit_other = -(
-                    stake_02 + stake_12
-                )
-
-
-                outcome_col_1, outcome_col_2 = st.columns(
+                min_col_1, min_col_2 = st.columns(
                     2,
                     gap="medium",
                 )
 
-                with outcome_col_1:
+                with min_col_1:
+
+                    st.metric(
+                        "Stake X minima",
+                        f"{minimum_back_stake:.2f}".rstrip("0").rstrip(".") + " €",
+                    )
+
+                with min_col_2:
+
+                    st.metric(
+                        "Freebet minima",
+                        f"€{target_freebet:.2f}".rstrip("0").rstrip(".") + " €",
+                    )
+
+
+                # ==================================================
+                # UNICO BOTTONE
+                # ==================================================
+
+                st.button(
+                    "IMPOSTA STAKE MINIMA",
+                    key="set_minimum_stake_button",
+                    use_container_width=True,
+                    on_click=set_minimum_stake,
+                )
+
+
+            else:
+
+                st.warning(
+                    "Impossibile determinare la stake X minima."
+                )
+
+
+    # ==================================================
+    # ESEGUIBILE
+    # ==================================================
+
+    if executable:
+
+        # ----------------------------------------------
+        # PIANO LAY
+        # ----------------------------------------------
+
+        with st.expander(
+            "Piano Lay",
+            expanded=True,
+        ):
+
+            if not lay_plan:
+
+                st.caption(
+                    "Nessun piano Lay disponibile."
+                )
+
+            else:
+
+                for i, lay in enumerate(
+                    lay_plan,
+                    start=1,
+                ):
+                    stake_display = f"{lay.stake:.2f}".rstrip("0").rstrip(".")
 
                     st.write(
-                        f"**X → {'+' if profit_x >= 0 else '-'}{abs(profit_x):.2f} €**"
+                        f"**Lay {i}** ({lay.percentage:.0f}%) — "
+                        f"**{stake_display} €** @ **{lay.odds:.2f}**"
+                    )
+
+
+        # ----------------------------------------------
+        # ESITI POTENZIALI
+        # ----------------------------------------------
+
+        with st.expander(
+            "Esiti potenziali",
+            expanded=True,
+        ):
+
+            profit_x = freebet
+
+            outcome_col_1, outcome_col_2 = st.columns(
+                2,
+                gap="medium",
+            )
+
+            with outcome_col_1:
+
+                st.write(
+                    f"**X → "
+                    f"{'+ ' if profit_x >= 0 else '-'}"
+                    f"{abs(profit_x):.2f}".rstrip("0").rstrip(".") + " €**"
+                )
+
+                if not solo_x:
+
+                    profit_02 = (
+                        stake_02 * (odds_02 - 1)
+                        - stake_12
                     )
 
                     st.write(
                         f"**{cs_02_label} → "
-                        f"{'+' if profit_02 >= 0 else '-'}{abs(profit_02):.2f} €**"
+                        f"{'+ ' if profit_02 >= 0 else '-'}"
+                        f"{abs(profit_02):.2f}".rstrip("0").rstrip(".") + " €**"
                     )
 
-                with outcome_col_2:
+            with outcome_col_2:
+
+                if not solo_x:
+
+                    profit_12 = (
+                        stake_12 * (odds_12 - 1)
+                        - stake_02
+                    )
+
+                    profit_other = -(
+                        stake_02 + stake_12
+                    )
 
                     st.write(
                         f"**{cs_12_label} → "
-                        f"{'+' if profit_12 >= 0 else '-'}{abs(profit_12):.2f} €**"
+                        f"{'+ ' if profit_12 >= 0 else '-'}"
+                        f"{abs(profit_12):.2f}".rstrip("0").rstrip(".") + " €**"
                     )
-
+                    
                     st.write(
                         f"**Altri esiti → "
-                        f"{'+' if profit_other >= 0 else '-'}{abs(profit_other):.2f} €**"
+                        f"{'+ ' if profit_other >= 0 else '-'}"
+                        f"{abs(profit_other):.2f}".rstrip("0").rstrip(".") + " €**"
                     )
+
+                else:
+
+                    st.write(
+                        f"**Altri esiti → 0 €**"
+                    )
+                
+
+

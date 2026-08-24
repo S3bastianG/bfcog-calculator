@@ -7,11 +7,12 @@ from engine.betfair_ladder import previous_tick
 class LayPlan:
     stake: float
     odds: float
+    percentage: float
 
 
 def calculate_lay_plan(
     back_stake: float,
-    back_odds: float,
+    back_odds: float
 ) -> list[LayPlan]:
     """
     Crea il piano Lay X:
@@ -43,7 +44,7 @@ def calculate_lay_plan(
     odds_3 = previous_tick(odds_2, 1)
 
     return [
-        LayPlan(stake=stake_70, odds=odds_1),
-        LayPlan(stake=stake_15_1, odds=odds_2),
-        LayPlan(stake=stake_15_2, odds=odds_3),
+        LayPlan(stake=stake_70, odds=odds_1, percentage=70),
+        LayPlan(stake=stake_15_1, odds=odds_2, percentage=15),
+        LayPlan(stake=stake_15_2, odds=odds_3, percentage=15),
     ]
