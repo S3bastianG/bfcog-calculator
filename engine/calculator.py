@@ -83,6 +83,10 @@ def calculate_cs_trade(
         stake_02 = freebet / (odds_02 - 1)
         stake_12 = freebet / (odds_12 - 1)
 
+        # BET X A COPERTURA STAKE CS
+        #stake_02 = freebet * odds_12 / (odds_02 + odds_12)
+        #stake_12 = freebet * odds_02 / (odds_02 + odds_12)
+
         MIN_BET_STAKE = 1.00
 
         stake_02_executable = stake_02 >= MIN_BET_STAKE
@@ -146,6 +150,11 @@ def calculate_minimum_back_stake(
         required_freebet_02,
         required_freebet_12,
     )
+
+    # BET X A COPERTURA STAKE CS
+    #required_freebet_02 = (min_cs_stake * (odds_02 + odds_12) / odds_12)
+    #required_freebet_12 = (min_cs_stake * (odds_02 + odds_12) / odds_02)
+    #target_freebet = max(required_freebet_02, required_freebet_12)
 
     # --------------------------------------------------
     # CALCOLO FREEBET PER €1 DI BACK X
