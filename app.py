@@ -892,6 +892,15 @@ if "cs_freebet" not in st.session_state:
     st.session_state.cs_freebet = "100"
 
 
+def get_quote_from_state(key: str, default: float) -> float:
+    value = st.session_state.get(key, default)
+
+    try:
+        return float(str(value).replace(",", "."))
+    except (ValueError, TypeError):
+        return default
+
+
 # ==================================================
 # STAKE STEP
 # ==================================================
@@ -1429,13 +1438,9 @@ with input_col:
 
     else:
 
-        odds_02 = float(
-            st.session_state.get("odds_02", "20.00").replace(",", ".")
-        )
+        odds_02 = get_quote_from_state("odds_02", 20.00)
+        odds_12 = get_quote_from_state("odds_12", 10.00)
 
-        odds_12 = float(
-            st.session_state.get("odds_12", "10.00").replace(",", ".")
-        )
 
 
 
