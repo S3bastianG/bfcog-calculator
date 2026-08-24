@@ -71,10 +71,6 @@ st.markdown(
         margin-bottom: 0.5rem !important;
     }
 
-    [data-testid="stCaptionContainer"] {
-        margin-bottom: 1.1rem;
-    }
-
 
     /* ==================================================
        LABEL INPUT PERSONALIZZATE
@@ -605,8 +601,17 @@ st.markdown(
 
     @media (max-width: 768px) {
 
+        [data-testid="stHorizontalBlock"] {
+            gap: 0.5rem !important;
+        }
+        
+        h3 {
+            text-align: center !important;
+        }
+
         .block-container {
             max-width: 100%;
+            margin-top: 1rem;
             padding-top: 1rem;
             padding-bottom: 1rem;
             padding-left: 0.85rem;
@@ -1225,19 +1230,136 @@ def quote_input(
 
 st.title("Draw → Correct Score")
 
-st.caption(
-    "Calcola rapidamente le stake CS a partire dalla freebet sulla X."
+st.markdown(
+    """
+    <style>
+    .info-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .info-caption {
+        color: rgba(250, 250, 250, 0.65);
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* Contenitore del popover */
+    .info-popover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Pulsante informazioni */
+    .info-popover [data-testid="stPopover"] {
+        width: auto !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .info-popover [data-testid="stPopover"] button {
+        width: 1.35rem !important;
+        min-width: 1.35rem !important;
+        height: 1.35rem !important;
+        min-height: 1.35rem !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+
+        color: rgba(255, 255, 255, 0.55) !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        font-family: Arial, sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        font-style: italic !important;
+        line-height: 1 !important;
+    }
+
+    .info-popover [data-testid="stPopover"] button:hover {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+
+    @media (max-width: 768px) {
+        .info-caption {
+            font-size: 0.85rem;
+        }
+
+        .info-popover [data-testid="stPopover"] button {
+            width: 1.35rem !important;
+            min-width: 1.35rem !important;
+            height: 1.35rem !important;
+            min-height: 1.35rem !important;
+        }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
+
+
+col_caption, col_info = st.columns(
+    [1, 0.07],
+    gap="small",
+    vertical_alignment="center",
+)
+
+with col_caption:
+
+    st.markdown(
+        '<div class="info-caption">'
+        'Calcola rapidamente le stake CS a partire dalla freebet sulla X.'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+
+with col_info:
+
+    st.markdown(
+        '<div class="info-popover">',
+        unsafe_allow_html=True,
+    )
+
+    with st.popover("🛈", key="info-popover"):
+
+        st.markdown("#### Come funziona")
+
+        st.write(
+            "Il tool calcola la freebet ottenuta sulla X dopo il piano Lay "
+            "e determina le stake da puntare sui Correct Score in modo da "
+            "ottenere un profitto equivalente alla freebet."
+        )
+
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
 
 # ==================================================
 # MAIN LAYOUT
 # ==================================================
-
-input_col, result_col = st.columns(
-    [0.95, 1.05],
-    gap="large",
-)
+with st.container(key="main-layout"):
+    input_col, result_col = st.columns(
+        [0.95, 1.05],
+        gap="large",
+    )
 
 
 # ==================================================
@@ -1457,42 +1579,44 @@ with result_col:
         # FREEBET
         # ==================================================
 
-        #st.markdown(
-        #    '<div class="result-label">Freebet</div>',
-        #    unsafe_allow_html=True,
-        #)
-
-        #st.markdown(
-        #    f'<div class="freebet-value">{freebet:.2f} €</div>',
-        #    unsafe_allow_html=True,
-        #)
+        st.markdown(
+            '<div class="result-label">Freebet</div>',
+            unsafe_allow_html=True,
+        )
+        
+        st.markdown(
+            f'<div class="freebet-value">{freebet:.2f} €</div>',
+            unsafe_allow_html=True,
+        )
 
         # ==================================================
         # CS STAKES
         # ==================================================
 
-        cs_col_02, cs_col_12 = st.columns(
-            2,
-            gap="medium",
-        )
+        with st.container(key="cs-results"):
 
-        with cs_col_02:
-
-            st.metric(
-                cs_02_label,
-                f"{stake_02:.2f} €",
-                delta=f"@ {odds_02:.2f}",
-                delta_color="off",
+            cs_col_02, cs_col_12 = st.columns(
+                2,
+                gap="medium",
             )
 
-        with cs_col_12:
+            with cs_col_02:
 
-            st.metric(
-                cs_12_label,
-                f"{stake_12:.2f} €",
-                delta=f"@ {odds_12:.2f}",
-                delta_color="off",
-            )
+                st.metric(
+                    cs_02_label,
+                    f"{stake_02:.2f} €",
+                    delta=f"@ {odds_02:.2f}",
+                    delta_color="off",
+                )
+
+            with cs_col_12:
+
+                st.metric(
+                    cs_12_label,
+                    f"{stake_12:.2f} €",
+                    delta=f"@ {odds_12:.2f}",
+                    delta_color="off",
+                )
 
 
         # ==================================================
