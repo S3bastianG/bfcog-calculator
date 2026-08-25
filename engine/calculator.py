@@ -14,13 +14,12 @@ def calculate_cs_trade(
 
     1. Crea automaticamente il piano Lay X:
        - 70% a -2 tick
-       - 15% a -1 tick
-       - 15% a -1 tick
+       - 20% a -2 tick
+       - 10% a -6 tick
 
     2. Calcola la freebet ottenuta sulla X.
 
-    3. Calcola le stake CS in modo che il profitto
-       di ciascun CS sia uguale alla freebet X.
+    3. Calcola le stake CS in modo che la somma delle stake CS sia uguale alla freebet X.
     """
 
     if back_stake <= 0:
@@ -80,12 +79,8 @@ def calculate_cs_trade(
         stake_02_executable = True
         stake_12_executable = True
     else:
-        stake_02 = freebet / (odds_02 - 1)
-        stake_12 = freebet / (odds_12 - 1)
-
-        # BET X A COPERTURA STAKE CS
-        #stake_02 = freebet * odds_12 / (odds_02 + odds_12)
-        #stake_12 = freebet * odds_02 / (odds_02 + odds_12)
+        stake_02 = freebet * odds_12 / (odds_02 + odds_12)
+        stake_12 = freebet * odds_02 / (odds_02 + odds_12)
 
         MIN_BET_STAKE = 1.00
 
@@ -143,18 +138,9 @@ def calculate_minimum_back_stake(
     # FREEBET MINIMA NECESSARIA
     # --------------------------------------------------
 
-    required_freebet_02 = min_cs_stake * (odds_02 - 1)
-    required_freebet_12 = min_cs_stake * (odds_12 - 1)
-
-    target_freebet = max(
-        required_freebet_02,
-        required_freebet_12,
-    )
-
-    # BET X A COPERTURA STAKE CS
-    #required_freebet_02 = (min_cs_stake * (odds_02 + odds_12) / odds_12)
-    #required_freebet_12 = (min_cs_stake * (odds_02 + odds_12) / odds_02)
-    #target_freebet = max(required_freebet_02, required_freebet_12)
+    required_freebet_02 = (min_cs_stake * (odds_02 + odds_12) / odds_12)
+    required_freebet_12 = (min_cs_stake * (odds_02 + odds_12) / odds_02)
+    target_freebet = max(required_freebet_02, required_freebet_12)
 
     # --------------------------------------------------
     # CALCOLO FREEBET PER €1 DI BACK X

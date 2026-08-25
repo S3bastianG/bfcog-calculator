@@ -5,7 +5,7 @@ from engine.betfair_ladder import BETFAIR_LADDER, next_tick, previous_tick
 
 st.set_page_config(page_title="Draw → CS Calculator", page_icon="⚽", layout="centered")
 
-APP_VERSION = "2.0.1"
+APP_VERSION = "1.0.0"
 
 st.markdown("""
 <style>
@@ -560,7 +560,7 @@ button[kind="primary"] {
 if "back_odds" not in st.session_state: st.session_state.back_odds = "4.50"
 if "odds_02" not in st.session_state: st.session_state.odds_02 = "20.00"
 if "odds_12" not in st.session_state: st.session_state.odds_12 = "10.00"
-if "stake_x" not in st.session_state: st.session_state.stake_x = "1000"
+if "stake_x" not in st.session_state: st.session_state.stake_x = "105"
 if "favorita_trasferta" not in st.session_state: st.session_state.favorita_trasferta = False
 if "sharp_exchange" not in st.session_state: st.session_state.sharp_exchange = True
 if "solo_x" not in st.session_state: st.session_state.solo_x = False
@@ -577,6 +577,7 @@ def get_quote_from_state(key: str, default: float) -> float:
         return default
 
 def stake_step(value: float) -> float:
+    if value <= 20: return 1
     if value <= 50: return 10
     if value <= 100: return 10.0
     if value <= 1000: return 100.0
@@ -584,14 +585,9 @@ def stake_step(value: float) -> float:
 
 def round_minimum_stake(value: float) -> float:
     if value <= 0: return 0.0
-    if value <= 10: step = 2.0
-    elif value <= 50: step = 5.0
-    elif value <= 100: step = 10.0
-    elif value <= 500: step = 25.0
-    elif value <= 1000: step = 50.0
-    elif value <= 5000: step = 100.0
-    else: step = 250.0
+    step = 1 if value <= 10 else 2 if value <= 50 else 5 if value <= 250 else 25 if value <= 1000 else 100
     return math.ceil(value / step) * step
+
 
 def move_stake_down():
     try:
@@ -676,7 +672,7 @@ st.markdown(f"""
         font-weight: 700;
         line-height: 1.1;
     ">
-        Draw → Correct Score
+        Draw → Correct Score (Cover)
     </span>
     <span style="
         font-size: 0.7rem;
@@ -782,21 +778,20 @@ with input_col:
     back_stake = stake_input()
 
     if favorita_trasferta:
-        stake_cs_02_label = "Stake CS 2-0"
-        stake_cs_12_label = "Stake CS 2-1"
-        cs_02_label = "CS 2-0"
-        cs_12_label = "CS 2-1"
+        stake_cs_02_label, stake_cs_12_label = "Stake CS 2-0", "Stake CS 2-1"
+        quote_cs_02_label, quote_cs_12_label = "Quota CS 2-0", "Quota CS 2-1"
+        cs_02_label, cs_12_label = "CS 2-0", "CS 2-1"
     else:
-        stake_cs_02_label = "Stake CS 0-2"
-        stake_cs_12_label = "Stake CS 1-2"
-        cs_02_label = "CS 0-2"
-        cs_12_label = "CS 1-2"
+        stake_cs_02_label, stake_cs_12_label = "Stake CS 0-2", "Stake CS 1-2"
+        quote_cs_02_label, quote_cs_12_label = "Quota CS 0-2", "Quota CS 1-2"
+        cs_02_label, cs_12_label = "CS 0-2", "CS 1-2"
+
 
     back_odds = quote_input("Quota X", "back_odds")
 
     if not solo_x:
-        odds_02 = quote_input(stake_cs_02_label, "odds_02")
-        odds_12 = quote_input(stake_cs_12_label, "odds_12")
+        odds_02 = quote_input(quote_cs_02_label, "odds_02")
+        odds_12 = quote_input(quote_cs_12_label, "odds_12")
     else:
         odds_02 = get_quote_from_state("odds_02", 20.00)
         odds_12 = get_quote_from_state("odds_12", 10.00)
@@ -913,7 +908,7 @@ with result_col:
                 st.warning("Impossibile determinare la stake X minima.")
 
     if executable:
-        with st.expander("Piano Lay", expanded=True):
+        with st.expander("Piano Lay (modificato)", expanded=True):
             if not lay_plan:
                 st.caption("Nessun piano Lay disponibile.")
             else:
