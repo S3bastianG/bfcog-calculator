@@ -3,7 +3,7 @@ import streamlit as st
 from engine.calculator import calculate_cs_trade, calculate_minimum_back_stake
 from engine.betfair_ladder import BETFAIR_LADDER, next_tick, previous_tick
 
-st.set_page_config(page_title="Draw → CS Calculator", page_icon="⚽", layout="centered")
+st.set_page_config(page_title="BFCOG → Calculator", page_icon="⚽", layout="centered")
 
 APP_VERSION = "2.0.2"
 
@@ -670,7 +670,7 @@ st.markdown(f"""
         font-weight: 700;
         line-height: 1.1;
     ">
-        Draw → Correct Score
+        BFCOG → Calculator
     </span>
     <span style="
         font-size: 0.7rem;
