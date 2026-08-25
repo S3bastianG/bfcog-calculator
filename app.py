@@ -3,9 +3,9 @@ import streamlit as st
 from engine.calculator import calculate_cs_trade, calculate_minimum_back_stake
 from engine.betfair_ladder import BETFAIR_LADDER, next_tick, previous_tick
 
-st.set_page_config(page_title="Draw → CS Calculator", page_icon="⚽", layout="centered")
+st.set_page_config(page_title="BFCOG → Calculator", page_icon="⚽", layout="centered")
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 
 st.markdown("""
 <style>
@@ -672,7 +672,7 @@ st.markdown(f"""
         font-weight: 700;
         line-height: 1.1;
     ">
-        Draw → Correct Score (Cover)
+        BFCOG → Calculator (Cover)
     </span>
     <span style="
         font-size: 0.7rem;
@@ -785,7 +785,6 @@ with input_col:
         stake_cs_02_label, stake_cs_12_label = "Stake CS 0-2", "Stake CS 1-2"
         quote_cs_02_label, quote_cs_12_label = "Quota CS 0-2", "Quota CS 1-2"
         cs_02_label, cs_12_label = "CS 0-2", "CS 1-2"
-
 
     back_odds = quote_input("Quota X", "back_odds")
 
