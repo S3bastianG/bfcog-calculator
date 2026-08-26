@@ -162,18 +162,18 @@ h3 {
     border: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(255, 255, 255, 0.035);
 }
-.st-key-favorite-away-box [data-testid="stCheckbox"],
-.st-key-sharp-exchange-box [data-testid="stCheckbox"],
-.st-key-solo-x-box [data-testid="stCheckbox"] {
+.st-key-favorite-away-box [data-testid="stToggle"],
+.st-key-sharp-exchange-box [data-testid="stToggle"],
+.st-key-solo-x-box [data-testid="stToggle"] {
     margin: 0 !important;
     padding: 0 !important;
 }
-.st-key-favorite-away-box [data-testid="stCheckbox"] label,
-.st-key-favorite-away-box [data-testid="stCheckbox"] p,
-.st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
-.st-key-sharp-exchange-box [data-testid="stCheckbox"] p,
-.st-key-solo-x-box [data-testid="stCheckbox"] label,
-.st-key-solo-x-box [data-testid="stCheckbox"] p {
+.st-key-favorite-away-box [data-testid="stToggle"] label,
+.st-key-favorite-away-box [data-testid="stToggle"] p,
+.st-key-sharp-exchange-box [data-testid="stToggle"] label,
+.st-key-sharp-exchange-box [data-testid="stToggle"] p,
+.st-key-solo-x-box [data-testid="stToggle"] label,
+.st-key-solo-x-box [data-testid="stToggle"] p {
     font-size: 1.05rem !important;
     font-weight: 700 !important;
 }
@@ -285,12 +285,12 @@ button[kind="primary"] {
         min-height: 2.8rem !important;
         height: 2.8rem !important;
     }
-    .st-key-favorite-away-box [data-testid="stCheckbox"] label,
-    .st-key-favorite-away-box [data-testid="stCheckbox"] p,
-    .st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
-    .st-key-sharp-exchange-box [data-testid="stCheckbox"] p,
-    .st-key-solo-x-box [data-testid="stCheckbox"] label,
-    .st-key-solo-x-box [data-testid="stCheckbox"] p {
+    .st-key-favorite-away-box [data-testid="stToggle"] label,
+    .st-key-favorite-away-box [data-testid="stToggle"] p,
+    .st-key-sharp-exchange-box [data-testid="stToggle"] label,
+    .st-key-sharp-exchange-box [data-testid="stToggle"] p,
+    .st-key-solo-x-box [data-testid="stToggle"] label,
+    .st-key-solo-x-box [data-testid="stToggle"] p {
         font-size: 1.1rem !important;
     }
 }
@@ -336,10 +336,10 @@ button[kind="primary"] {
         margin-top: 0.1rem;
         margin-bottom: 0.75rem;
     }
-    .st-key-favorite-away-box [data-testid="stCheckbox"] label,
-    .st-key-favorite-away-box [data-testid="stCheckbox"] p,
-    .st-key-solo-x-box [data-testid="stCheckbox"] label,
-    .st-key-solo-x-box [data-testid="stCheckbox"] p {
+    .st-key-favorite-away-box [data-testid="stToggle"] label,
+    .st-key-favorite-away-box [data-testid="stToggle"] p,
+    .st-key-solo-x-box [data-testid="stToggle"] label,
+    .st-key-solo-x-box [data-testid="stToggle"] p {
         font-size: 1.05rem !important;
         font-weight: 700 !important;
     }
@@ -348,8 +348,8 @@ button[kind="primary"] {
         margin-top: 0.1rem;
         margin-bottom: 0.75rem;
     }
-    .st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
-    .st-key-sharp-exchange-box [data-testid="stCheckbox"] p {
+    .st-key-sharp-exchange-box [data-testid="stToggle"] label,
+    .st-key-sharp-exchange-box [data-testid="stToggle"] p {
         font-size: 1.05rem !important;
         font-weight: 700 !important;
     }
@@ -469,30 +469,11 @@ button[kind="primary"] {
     background: color-mix(in srgb, var(--text-color) 4%, transparent) !important;
     border-color: color-mix(in srgb, var(--text-color) 18%, transparent) !important;
 }
-.st-key-favorite-away-box [data-testid="stCheckbox"] label,
-.st-key-favorite-away-box [data-testid="stCheckbox"] p,
-.st-key-sharp-exchange-box [data-testid="stCheckbox"] label,
-.st-key-sharp-exchange-box [data-testid="stCheckbox"] p,
-.st-key-solo-x-box [data-testid="stCheckbox"] label,
-.st-key-solo-x-box [data-testid="stCheckbox"] p {
-    color: var(--text-color) !important;
-}
-.st-key-favorite-away-box [data-testid="stCheckbox"] input,
-.st-key-sharp-exchange-box [data-testid="stCheckbox"] input,
-.st-key-solo-x-box [data-testid="stCheckbox"] input {
-    accent-color: var(--primary-color);
-}
 .st-key-favorite-away-box:hover,
 .st-key-sharp-exchange-box:hover,
 .st-key-solo-x-box:hover {
     background: color-mix(in srgb, var(--text-color) 7%, transparent) !important;
     border-color: color-mix(in srgb, var(--text-color) 30%, transparent) !important;
-}
-.st-key-favorite-away-box:has(input:checked),
-.st-key-sharp-exchange-box:has(input:checked),
-.st-key-solo-x-box:has(input:checked) {
-    background: color-mix(in srgb, var(--primary-color) 7%, transparent) !important;
-    border-color: color-mix(in srgb, var(--primary-color) 45%, transparent) !important;
 }
 .info-row {
     display: flex;
@@ -564,6 +545,7 @@ if "stake_x" not in st.session_state: st.session_state.stake_x = "105"
 if "favorita_trasferta" not in st.session_state: st.session_state.favorita_trasferta = False
 if "sharp_exchange" not in st.session_state: st.session_state.sharp_exchange = True
 if "solo_x" not in st.session_state: st.session_state.solo_x = False
+if "solo_x_previous" not in st.session_state: st.session_state.solo_x_previous = False
 if "minimum_back_stake" not in st.session_state: st.session_state.minimum_back_stake = None
 if "calculated" not in st.session_state: st.session_state.calculated = False
 if "cs_independent" not in st.session_state: st.session_state.cs_independent = False
@@ -767,13 +749,19 @@ with input_col:
     st.header("Input")
 
     with st.container(key="favorite-away-box"):
-        favorita_trasferta = st.checkbox("Favorita in trasferta", key="favorita_trasferta")
+        favorita_trasferta = st.toggle("Favorita in trasferta", key="favorita_trasferta")
 
     with st.container(key="sharp-exchange-box"):
-        sharp_exchange = st.checkbox("Sharp Exchange", key="sharp_exchange")
+        sharp_exchange = st.toggle("Sharp Exchange", key="sharp_exchange")
 
     with st.container(key="solo-x-box"):
-        solo_x = st.checkbox("Calcola solo su X", key="solo_x")
+        solo_x = st.toggle("Calcola solo su X", key="solo_x")
+
+    if st.session_state.solo_x_previous and not solo_x:
+        st.session_state.odds_02 = "20.00"
+        st.session_state.odds_12 = "10.00"
+
+    st.session_state.solo_x_previous = solo_x
 
     back_stake = stake_input()
 
