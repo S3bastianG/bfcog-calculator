@@ -541,7 +541,7 @@ button[kind="primary"] {
 if "back_odds" not in st.session_state: st.session_state.back_odds = "4.50"
 if "odds_02" not in st.session_state: st.session_state.odds_02 = "20.00"
 if "odds_12" not in st.session_state: st.session_state.odds_12 = "10.00"
-if "stake_x" not in st.session_state: st.session_state.stake_x = "105"
+if "stake_x" not in st.session_state: st.session_state.stake_x = "125"
 if "favorita_trasferta" not in st.session_state: st.session_state.favorita_trasferta = False
 if "sharp_exchange" not in st.session_state: st.session_state.sharp_exchange = True
 if "solo_x" not in st.session_state: st.session_state.solo_x = False
@@ -895,7 +895,7 @@ with result_col:
                 st.warning("Impossibile determinare la stake X minima.")
 
     if executable:
-        with st.expander("Piano Lay (modificato)", expanded=True):
+        with st.expander("Piano Lay", expanded=True):
             if not lay_plan:
                 st.caption("Nessun piano Lay disponibile.")
             else:

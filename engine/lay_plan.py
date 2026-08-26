@@ -18,15 +18,15 @@ def calculate_lay_plan(
     Crea il piano Lay X:
 
     70% dello stake a -2 tick
-    20% dello stake a -2 tick
-    10% dello stake a -6 tick
+    15% dello stake a -1 tick
+    15% dello stake a -1 tick
 
     Esempio:
         Back 300 @ 3.80
 
         -> 210 @ 3.70
-        -> 60  @ 3.60
-        -> 30  @ 3.30
+        -> 45  @ 3.65
+        -> 45  @ 3.60
     """
 
     if back_stake <= 0:
@@ -36,15 +36,15 @@ def calculate_lay_plan(
         raise ValueError("back_odds deve essere > 1.01")
 
     stake_70 = back_stake * 0.70
-    stake_20 = back_stake * 0.20
-    stake_10 = back_stake * 0.10
+    stake_15_1 = back_stake * 0.15
+    stake_15_2 = back_stake * 0.15
 
     odds_1 = previous_tick(back_odds, 2)
-    odds_2 = previous_tick(odds_1, 2)
-    odds_3 = previous_tick(odds_2, 6)
+    odds_2 = previous_tick(odds_1, 1)
+    odds_3 = previous_tick(odds_2, 1)
 
     return [
         LayPlan(stake=stake_70, odds=odds_1, percentage=70),
-        LayPlan(stake=stake_20, odds=odds_2, percentage=20),
-        LayPlan(stake=stake_10, odds=odds_3, percentage=10),
+        LayPlan(stake=stake_15_1, odds=odds_2, percentage=15),
+        LayPlan(stake=stake_15_2, odds=odds_3, percentage=15),
     ]

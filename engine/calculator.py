@@ -14,8 +14,8 @@ def calculate_cs_trade(
 
     1. Crea automaticamente il piano Lay X:
        - 70% a -2 tick
-       - 20% a -2 tick
-       - 10% a -6 tick
+       - 15% a -1 tick
+       - 15% a -1 tick
 
     2. Calcola la freebet ottenuta sulla X.
 
