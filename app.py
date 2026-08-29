@@ -5,7 +5,7 @@ from engine.betfair_ladder import BETFAIR_LADDER, next_tick, previous_tick
 
 st.set_page_config(page_title="BFCOG → Calculator", page_icon="⚽", layout="centered")
 
-APP_VERSION = "2.0.2"
+APP_VERSION = "2.0.3"
 
 st.markdown("""
 <style>
@@ -221,6 +221,9 @@ button[kind="primary"] {
 }
 [data-testid="stMetricDelta"] {
     font-size: 0.78rem;
+}
+[data-testid="stWidgetLabel"] [data-testid="stMarkdownContainer"] {
+    font-size: 1rem;
 }
 .status-box {
     padding: 0.72rem 0.8rem;
